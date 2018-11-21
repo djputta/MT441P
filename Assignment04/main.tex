@@ -1,0 +1,87 @@
+% !TEX program = xelatex
+
+\documentclass[12pt, answers]{exam}
+
+\usepackage{mathtools}
+\usepackage[MnSymbol]{mathspec}
+\usepackage{titling}
+\usepackage{geometry}
+
+\newgeometry{hmargin={12mm,17mm}}
+
+\setmainfont[Numbers={Lining,Proportional}]{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Minion Pro}
+
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\footrule
+\extraheadheight{-.3in}
+\extrafootheight{-.75in}
+\firstpageheader{}{}{}
+\runningheader{\large\bfseries MT451P}{\large\bfseries Dheeraj Putta}{\large\bfseries Assignment 2}
+\footer{}{Page \thepage\ of \numpages}{}
+
+\setlength{\droptitle}{-5em}
+
+\title{MT451P - Assignment 2}
+\author{Dheeraj Putta \\ 15329966}
+\date{}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\d}{\mathrm{d}}
+
+\linespread{1.15}
+
+\begin{document}
+    \maketitle
+    \begin{questions}
+        \thispagestyle{foot}
+        \question Let $|G| = 144$. Show that $G$ is not simple.
+        \begin{solution}
+            We know that $|G| = 144 = 2^43^2$.\\
+            We have that $n_3 = 1, 4$ or $16$.
+            \begin{itemize}
+                \item If $n_3 = 1$ then $G$ is not simple since the $3$-Sylow subgroup is normal.
+                \item Suppose $n_3 = 4$. Consider the follwoing map:
+                \[ \phi\colon G \to \text{Perm}(G/N_G(Q)) \]
+                where $Q$ is a $3$-Sylow subgroup. We know that $\phi \cong S_4$ as $[G: N_G(Q)| = 4$. Since the order of $G$ is less than the order of $S_4$, we see that we have a homomorphism with a non-trivial kernel. Since $\ker \phi$ is nontrivial and normal in $G$, $G$ is not simple.
+
+                \item Suppose $n_3 = 16$. Now suppose that every pair of 3-Sylow subgroups have trivial intersection. This means that there are $16 \cdot 8$ non-identity elements in the $3$-Sylow subgroups and there are 16 elements left to form the $2$-Sylow subgroup, which means that there is only one $2$-Sylow subgroup. Therefore $n_2 = 1\implies G$ is not simple. \\
+
+                Suppose there exists two different Sylow 3-subgroups P and Q such that $|P \cap Q| = 3$. Let $N = N_G(P \cap Q)$ be the normalizer of $P \cap Q$, which is the largest subgroup of $G$ that contains $P \cap Q$ as a normal subgroup. Since $|P_i| = 3^2$, we know that $P_i$ is abelian for all $i$ and therefore $Q \cap P$ is normal in both $P$ and $Q$. So we have that both $P, Q \subset N \implies PQ \subset N$. We also have that
+                \[ |PQ| = \frac{|P||Q|}{|P \cap Q|} = 27 \]
+                Hence $|N| > 27$ as 27 does not divide the order of $G$. We also know that $9 \mathrel{|} |N|$. So we have that $|N| = 36, 72$ or $144$. If $|N| = 144$ then it would mean that $P \cap Q$ is normal in $G$. If $|N| = 36$ or $72$ then $[G \colon N] = 4$ or $2$. From a similar argument as above, we have $\phi\colon G \to \text{Perm}(G/N)$ to get that $\ker\phi$ is a nontrivial subgroup of $G$, hence $G$ is not simple.
+            \end{itemize}
+        \end{solution}
+
+        \question Suppose that $|G| = 60$ and that $G$ has 20 elements of order 3. Show that $G\cong A_5$.
+        \begin{solution}
+            Since there are 20 elements of order 3, it must be the case that the intersection of each of the subgroups is
+            trivial, so we get that $n_3(3 - 1) = 20 \implies n_3 = 10$. \\ \\
+            Now assume that $G$ is not simple and that it contains a non-trivial proper subgroup $H$.
+            \begin{itemize}
+                \item If $3 \mathrel{|} |H|$, then $H$ contains a $3$-Sylow subgroup $P$ of $G$. Since $H$ is normal in $G$
+                      and every $3$-Sylow subgroup is a conjugate of $P$, $H$ contains all 10 3-Sylow subgroups
+                      $\implies |H| \ge 21$. Since $|H| \mathrel{|} |G|$ and $H$ is proper, $|H| = 30$. This contradicts
+                      the fact that every group of order 30 has a unique 3-Sylow subgroup. Therefore $3 \mathrel{\nmid} |H|$.
+                \item If $|H| = 10$ or $20$, then $H$ has a normal Sylow subgroup which is also normal in $G$ (by Question 9).
+                    Thus we may assume, by replacing $H$ by its normal subgroup if necessary, that $|H| = 2, 4$ or 5. Then
+                    $|G / H| = 30, 15$ or 12. Which implies that $G / H$ has a normal subgroup $K / H$ of order 3, where
+                    $K$ is a normal subgroup of $G$. Now $|K| = |K / H| \cdot |H| = 5 \cdot |H|$. This implies that
+                    $5 \mathrel{|} |K|$ which contradicts the previous point. Therefore $G$ is simple.
+            \end{itemize}
+        \end{solution}
+
+        \question Let $G$ be the group of rotations of the Icosahedron. Show that $G\cong A_5$.
+        \begin{solution}
+            The elements of $G$ are:
+            \begin{itemize}
+                \item 4 rotations (by multiples of $2\pi / 4$) about centres of 6 pairs of opposite faces.
+                \item 1 rotation  (by $\pi$) about centres of 15 pairs of opposite edges.
+                \item 2 rotations (by $\pm 2\pi / 3$) about 10 pairs of opposite vertices.
+            \end{itemize}
+            Since $|G| = 60$ and the number of 3 cycles is 20 we can use the question above to show that $G \cong A_5$.
+        \end{solution}
+    \end{questions}
+\end{document}
