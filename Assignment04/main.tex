@@ -18,14 +18,14 @@
 \runningheadrule
 \footrule
 \extraheadheight{-.3in}
-\extrafootheight{-.75in}
+\extrafootheight{-.8in}
 \firstpageheader{}{}{}
-\runningheader{\large\bfseries MT451P}{\large\bfseries Dheeraj Putta}{\large\bfseries Assignment 2}
+\runningheader{\large\bfseries MT441P}{\large\bfseries Dheeraj Putta}{\large\bfseries Assignment 4}
 \footer{}{Page \thepage\ of \numpages}{}
 
 \setlength{\droptitle}{-5em}
 
-\title{MT451P - Assignment 2}
+\title{MT441P - Assignment 4}
 \author{Dheeraj Putta \\ 15329966}
 \date{}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -54,7 +54,7 @@
                 Hence $|N| > 27$ as 27 does not divide the order of $G$. We also know that $9 \mathrel{|} |N|$. So we have that $|N| = 36, 72$ or $144$. If $|N| = 144$ then it would mean that $P \cap Q$ is normal in $G$. If $|N| = 36$ or $72$ then $[G \colon N] = 4$ or $2$. From a similar argument as above, we have $\phi\colon G \to \text{Perm}(G/N)$ to get that $\ker\phi$ is a nontrivial subgroup of $G$, hence $G$ is not simple.
             \end{itemize}
         \end{solution}
-
+        \setcounter{question}{4}
         \question Suppose that $|G| = 60$ and that $G$ has 20 elements of order 3. Show that $G\cong A_5$.
         \begin{solution}
             Since there are 20 elements of order 3, it must be the case that the intersection of each of the subgroups is
@@ -82,6 +82,55 @@
                 \item 2 rotations (by $\pm 2\pi / 3$) about 10 pairs of opposite vertices.
             \end{itemize}
             Since $|G| = 60$ and the number of 3 cycles is 20 we can use the question above to show that $G \cong A_5$.
+        \end{solution}
+
+        \question Let $|G| = 2^2 \cdot 5 \cdot 7$. Show that $G$ is not simple.
+        \begin{solution}
+            By Sylow's Theorem $n_3$ must divide $35$ and $n_3$ has to be one more than a multiple of 3, thus
+            $n_3 \in \{ 1, 7 \}$. Now suppose that $G$ is simple, then $n_3 \neq 1$. Then we have that $G$ is isomorphic
+            to a subgroup of $S_7$ and that $|G|$ has to divide $S_7$. But this is false hence we have a contraction. Therefore
+            $G$ is not simple.
+        \end{solution}
+
+        \question If $|G| = 2p$, $(p > 2)$ show that $G$ is cyclic or dihedral.
+        \begin{solution}
+            Choose $a, b \in G$ with $o(a) = 2$ and $o(b) = p$. Let $H = \langle a \rangle$ and $K = \langle b \rangle$.
+            Since every subgroup of index 2 is normal, $K$ is normal in $G$. Thus $aba^{-1} = b^i$ for some integer $i$.
+            We also know that $H \cap K = \{1\}$ and hence $G = HK = \langle a, b \rangle$. Now
+            \[ b^{i^2} = (aba^{-1})^{i} = ab^ia^{-1} = a(aba^{-1})a^{-1} = b\]
+            as $a^2 = 1$.\\
+            Thus $b^{i^2 - 1} = 1$ and hence $p \mathrel{|} i^2 - 1$ as $o(b) = p$. Therefore either $p \mathrel{|} i - 1$
+            or $p \mathrel{|} i + 1$.
+            \begin{itemize}
+                \item If $p \mathrel{|} i - 1$ then $aba^{-1} = b^i = b$ and so $ab = ba$. Thus $G$ is abelian and
+                $o(ab) = 2p$, so $G$ is cyclic in this case.
+                \item If $p \mathrel{|} i + 1$ then $aba^{-1} = b^i = b^{-1}$ and so
+                \[ G = \langle a, b \colon a^2 = b^p = 1, aba^{-1} = b^{-1} \rangle \cong D_{2p} \]
+            \end{itemize}
+            Therefore $G$ is either cyclic or dihedral.
+        \end{solution}
+
+        \question Suppose that $N$ is a normal subgroup of $G$, and that $P$ is a $p$-Sylow subgroup of $N$.
+        Show that $G = N_G(P)N.$
+        \begin{solution}
+            Pick $g \in G$. Since $P \subset N$ and $N \trianglelefteq G, gPg^{-1} \subset N$. Then by applying Sylows
+            theorem to $N$, there is an $n \in N$ such that $gPg^{-1} = nPn^{-1}$, so $n^{-1}gPg^{-1}n = P$. That means
+            $n^{-1}g \in N_G(P)$, so $g \in nN_G(P)$. Thus $G = N \cdot N_G(P)$.
+        \end{solution}
+
+        \question Suppose that $N \trianglelefteq G$, and that $P$ is a $p$-Sylow subgroup of $N$ and $P \trianglelefteq N$.
+        Show that $P \trianglelefteq G$.
+        \begin{solution}
+            We know that $G = N_G(P)N$. However since $P$ is normal in $N$, we know that $N \leq N_G(P)$. This implies that
+            $N_G(P)N = N_G(P)$. Therefore $G = N_G(P)$. Since the normalizer is the whole group, $P$ is normal in $G$.
+        \end{solution}
+        \pagebreak
+        \question Let $P$ be a $p$-Sylow subgroup of $A_n, n\geq 3$. Show that $N_G(P)$ contains an odd permutation.
+        \begin{solution}
+            Suppose $G = S_n$. \\
+            By Frattini's argument we get that $S_n = A_nN_G(P)$. Since $A_n$ contains only even permutations, the only
+            way to obtain odd permutations is to compose it with odd permutations. Therefore $N_G(P)$ must contain an odd
+            permutation.
         \end{solution}
     \end{questions}
 \end{document}
