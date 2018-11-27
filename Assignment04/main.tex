@@ -86,11 +86,11 @@
             Since $|G| = 60$ and the number of 3 cycles is 20 we can use the question above to show that $G \cong A_5$.
         \end{solution}
 
-        \question Let $|G| = 2^2 \cdot 5 \cdot 7$. Show that $G$ is not simple.
+        \question Let $|G| = 3^3 \cdot 5 \cdot 7$. Show that $G$ is not simple.
         \begin{solution}
             By Sylow's Theorem $n_3$ must divide $35$ and $n_3$ has to be one more than a multiple of 3, thus
             $n_3 \in \{ 1, 7 \}$. Now suppose that $G$ is simple, then $n_3 \neq 1$. Then we have that $G$ is isomorphic
-            to a subgroup of $S_7$ and that $|G|$ has to divide $S_7$. But this is false hence we have a contraction. Therefore
+            to a subgroup of $S_7$ and that $|G|$ has to divide $|S_7|$. But this is false hence we have a contraction. Therefore
             $G$ is not simple.
         \end{solution}
 
@@ -129,7 +129,7 @@
         \pagebreak
         \question Let $P$ be a $p$-Sylow subgroup of $A_n, n\geq 3$. Show that $N_G(P)$ contains an odd permutation.
         \begin{solution}
-            Suppose $G = S_n$. \\
+            Suppose $G = S_n$.
             By Frattini's argument we get that $S_n = A_nN_G(P)$. Since $A_n$ contains only even permutations, the only
             way to obtain odd permutations is to compose it with odd permutations. Therefore $N_G(P)$ must contain an odd
             permutation.
