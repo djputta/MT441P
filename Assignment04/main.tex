@@ -37,13 +37,14 @@
     \maketitle
     \begin{questions}
         \thispagestyle{foot}
+        \setcounter{question}{1}
         \question Let $|G| = 144$. Show that $G$ is not simple.
         \begin{solution}
             We know that $|G| = 144 = 2^43^2$.\\
             We have that $n_3 = 1, 4$ or $16$.
             \begin{itemize}
                 \item If $n_3 = 1$ then $G$ is not simple since the $3$-Sylow subgroup is normal.
-                \item Suppose $n_3 = 4$. Consider the follwoing map:
+                \item Suppose $n_3 = 4$. Consider the following map:
                 \[ \phi\colon G \to \text{Perm}(G/N_G(Q)) \]
                 where $Q$ is a $3$-Sylow subgroup. We know that $\phi \cong S_4$ as $[G: N_G(Q)| = 4$. Since the order of $G$ is less than the order of $S_4$, we see that we have a homomorphism with a non-trivial kernel. Since $\ker \phi$ is nontrivial and normal in $G$, $G$ is not simple.
 
@@ -71,6 +72,7 @@
                     $K$ is a normal subgroup of $G$. Now $|K| = |K / H| \cdot |H| = 5 \cdot |H|$. This implies that
                     $5 \mathrel{|} |K|$ which contradicts the previous point. Therefore $G$ is simple.
             \end{itemize}
+            Since we have already shown that a simple group of order 60 is isomorphic to $A_5$, we are finished.
         \end{solution}
 
         \question Let $G$ be the group of rotations of the Icosahedron. Show that $G\cong A_5$.
