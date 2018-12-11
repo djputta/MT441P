@@ -1,0 +1,149 @@
+% !TEX program = xelatex
+
+\documentclass[12pt, answers]{exam}
+
+\usepackage{mathtools}
+\usepackage[MnSymbol]{mathspec}
+\usepackage{titling}
+\usepackage{geometry}
+\usepackage{nicefrac}
+\usepackage{xfrac}
+
+\newgeometry{hmargin={12mm,17mm}}
+
+\setmainfont[Numbers={Lining,Proportional}]{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Minion Pro}
+
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\footrule
+\extraheadheight{-.3in}
+\extrafootheight{-.8in}
+\firstpageheader{}{}{}
+\runningheader{\large\bfseries MT441P}{\large\bfseries Dheeraj Putta}{\large\bfseries Assignment 5}
+\footer{}{Page \thepage\ of \numpages}{}
+
+\setlength{\droptitle}{-5em}
+
+\title{MT441P - Assignment 5}
+\author{Dheeraj Putta \\ 15329966}
+\date{}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\d}{\mathrm{d}}
+
+\linespread{1.15}
+
+\begin{document}
+    \maketitle
+    \begin{questions}
+        \thispagestyle{foot}
+        \question  How many distinguishable colourings of the regular tetrahedron are
+        there, if you may use 5 colours?
+
+        \begin{solution}
+            We have that $|\Omega| = 5^4$.
+            \begin{itemize}
+                \item There are 8 rotations by $\sfrac{2\pi}{3}$ about an axis passing through a vertex and the centre of
+                      the opposite face.
+                \item There are 3 rotations by $\pi$ about an axis through 2 opposite edges.
+            \end{itemize}
+            Then we get that the number of distinct colourings is
+            \[ \frac{1}{12}\left(5^4 + 11\left(5^2\right)\right) \]
+        \end{solution}
+
+        \question  How many distinguishable colourings of the cube are there, if you may
+        use 10 colours?
+
+        \begin{solution}
+            We have that $|\Omega| = 10 ^6$.
+            \begin{itemize}
+                \item There are 6 rotations around an edge by $\pi$.
+                \item There are 8 rotations around a vertex by $\pm \nicefrac{2\pi}{3}$.
+                \item There are 6 rotations around a face by $\pm \nicefrac{\pi}{2}$.
+                \item There are 3 rotations around a face by $\pi$.
+            \end{itemize}
+            Then we get that the number of distinct colourings is
+            \[ \frac{1}{24}\left(10^6 + 12\left(10^3\right) + 11 \left(10^2\right)\right) \]
+        \end{solution}
+
+        \question How many distinguishable colourings of the octahedron are there, if you
+        may use 8 colours?
+
+        \begin{solution}
+            We have that $|\Omega| = 8^8$.
+            \begin{itemize}
+                \item There are 6 rotations around a vertex by $\nicefrac{\pi}{2}$.
+                \item There are 6 rotations around an edge by $\pi$.
+                \item There are 3 rotations around a vertex by $\pi$.
+                \item There are 8 rotations around a face by $\pm \nicefrac{2\pi}{3}$.
+            \end{itemize}
+
+            Then we get the number of distinct colourings is
+            \[ \frac{1}{24} \left(8^8 + 6\left(8^2\right) + 17\left(8^4\right)\right) \]
+        \end{solution}
+
+        \question How many distinguishable colourings of the dodecahedron are there, if
+        you may use 4 colours?
+
+        \begin{solution}
+            We have that $|\Omega| = 4^{12}$.
+            \begin{itemize}
+                \item 4 rotations (by multiples of $\nicefrac{2\pi}{4}$) about centres of 6 pairs of opposite faces.
+                \item 1 rotation  (by $\pi$) about centres of 15 pairs of opposite edges.
+                \item 2 rotations (by $\pm \nicefrac{2\pi}{3}$) about 10 pairs of opposite vertices.
+            \end{itemize}
+            Then we get that the number of distinct colourings is
+            \[ \frac{1}{60}\left(4^{12} + 24\left(4^4\right) + 20\left(4^4\right) + 15\left(4^6\right)\right) \]
+        \end{solution}
+
+        \question How many distinguishable colourings of a roulette wheel are there, with
+        20 identical slots, using 6 colours?
+
+        \begin{solution}
+            We know that for a roulette wheel with $n$ segments and $k$ colours the number of distinct colourings is:
+            \[ \frac{1}{n}\sum_{\substack{d = 1 \\ d \mathrel{|} n}}^n \varphi(d)k^{\nicefrac{n}{d}}\]
+            Then for $n = 20$ and $k = 6$, we get
+            \begin{align*}
+                \#\text{orbits } &= \frac{1}{20}\left( \varphi(1)6^{20} + \varphi(2)6^{10} + \varphi(4)6^5 + \varphi(5)6^4 +
+                \varphi(10)6^2 + \varphi(20)6^1\right) \\
+                &= \frac{1}{20}\left(6^{20} + 6^{10} + 2\left(6^{5}\right) + 4\left(6^4\right) + 4\left(6^2\right)
+                    + 8\left(6^1\right)\right)
+            \end{align*}
+        \end{solution}
+
+        \question  How many distinguishable necklaces can you make (with no clasp), using
+        9 beads, where each can be any of 10 colours?
+
+        \begin{solution}
+            We know that for $n$ beads, $n$ odd, and $k$ colours the number of orbits is:
+            \[ \frac{1}{2n}\left(\sum_{\substack{d = 1 \\ d \mathrel{|} n}}^n \varphi(d)k^{\nicefrac{n}{d}} + n\left(k^{\frac{n+1}{2}}\right)\right) \]
+            Then for $n = 9$ and $k = 10$, we get
+            \begin{align*}
+                \#\text{orbits } &= \frac{1}{18}\left(\varphi(1)10^9 + \varphi(3)10^3 + \varphi(9)10^1 + 9\left(10^{5}\right)\right) \\
+                &= \frac{1}{18}\left(10^9 + 2\left(10^3\right) + 6\left(10^1\right) + 9\left(10^{5}\right)\right)
+            \end{align*}
+        \end{solution}
+
+        % \question  How many distinguishable necklaces can you make (with no clasp), using
+        % $n$ beads, where each can be any of $k$ colours? Show that If $n$ is odd the
+        % answer is
+        % \[ \frac{1}{2n} \left[ \sum_{d \mathrel{|} n} \varphi(d)k^{\frac{n}{d}} + nk^{\frac{n+1}{2}}\right] \]
+        % and if $n = 2m$ is even the answer is
+        % \[ \frac{1}{2n} \left[ \sum_{d \mathrel{|} n} \varphi(d)k^{\frac{n}{d}} + mk^{m} + mk^{m+1}\right] \]
+
+        % \begin{solution}
+        %     If $n$ odd then we know that
+        %     \begin{itemize}
+        %         \item $|\text{Fix}(1)| = k^n$.
+        %         \item Since necklaces act like a roulette wheel without flips we have that $|<\sigma^i>| = d$ where $d \mathrel{|} n$.
+        %         We also know that there are $\varphi(d)$ of these types.
+        %         \item For subgroups of the form $\tau\sigma^i$ these have order 2. We also know that there are $n$ of these
+        %         subgroups.
+        %     \end{itemize}
+        %     Putting these together we get that
+        %     \[ \#\text{orbits } &= \frac{1}{2n}\left[  \right] \]
+        % \end{solution}
+    \end{questions}
+\end{document}
